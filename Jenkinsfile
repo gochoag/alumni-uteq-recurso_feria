@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         COMPOSE_PROJECT_NAME = 'alumni_uteq'
+        DOCKER_API_VERSION = '1.41'
     }
 
     stages {
@@ -25,22 +26,19 @@ pipeline {
             steps {
                 sh '''
                     echo "====== CONTENEDOR CORRIENDO? ======"
-                    docker ps --filter name=alumni_uteq_web
+                    docker ps -a --filter name=alumni_uteq_web
                     echo ""
                     echo "====== LOGS DEL CONTENEDOR ======"
                     docker logs alumni_uteq_web
                     echo ""
-                    echo "====== ERROR LOG DE NGINX ======"
-                    docker exec alumni_uteq_web cat /etc/nginx/logs/error.log 2>/dev/null || echo "Error log vacio"
+                    echo "====== CERTIFICADOS EN VOLUMEN? ======"
+                    docker run --rm -v nginxfiles:/ssl alpine:latest ls -la /ssl/ 2>/dev/null || echo "Volumen nginxfiles vacio o no existe"
                     echo ""
-                    echo "====== CERTIFICADOS EN /ssl/? ======"
-                    docker exec alumni_uteq_web ls -la /ssl/ 2>/dev/null || echo "Directorio /ssl/ no existe"
-                    echo ""
-                    echo "====== TEST DESDE EL HOST A 9613 ======"
-                    curl -sk --max-time 5 https://localhost:9613/ || echo "curl fallo - posiblemente nginx no esta escuchando"
+                    echo "====== PROCESOS EN CONTENEDOR ======"
+                    docker top alumni_uteq_web 2>/dev/null || echo "Contenedor no esta corriendo"
                     echo ""
                     echo "====== PUERTO 9613 EN HOST ======"
-                    ss -tlnp | grep 9613 || echo "Puerto 9613 no aparece como abierto"
+                    ss -tlnp 2>/dev/null | grep 9613 || netstat -tlnp 2>/dev/null | grep 9613 || echo "Puerto 9613 no aparece abierto"
                 '''
             }
         }
