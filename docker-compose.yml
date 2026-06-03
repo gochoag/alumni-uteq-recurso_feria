@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  alumni_uteq_web:
+    container_name: alumni_uteq_web
+    build:
+      context: .
+    ports:
+      - "9126:443"
+    volumes:
+      - nginxfiles:/ssl/
+    restart: always
+    networks:
+      - alumni_network
+
+volumes:
+  nginxfiles:
+    external: true
+
+networks:
+  alumni_network:
+    driver: bridge
