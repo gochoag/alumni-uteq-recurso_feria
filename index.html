@@ -84,7 +84,7 @@
         </div>
 
         <div class="network-stage network-stage--intro" aria-label="Red UTEQ Alumni">
-          <div class="network" aria-hidden="true">
+          <div class="network">
             <span class="network__orbit network__orbit--one"></span>
             <span class="network__orbit network__orbit--two"></span>
 
@@ -93,30 +93,52 @@
             <span class="network__line network__line--three"></span>
             <span class="network__line network__line--four"></span>
 
-            <span class="network__node network__node--center">
+            <a
+              class="network__node network__node--center"
+              href="https://ssg.uteq.edu.ec/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Abrir la aplicación web UTEQ Alumni"
+            >
               <img
                 class="network__logo"
                 src="img/logo-uteq-texto.png"
                 alt=""
               />
               <small>Alumni</small>
-            </span>
-            <span class="network__node network__node--graduates">
+            </a>
+            <a
+              class="network__node network__node--graduates"
+              href="#evidencia-graduados"
+              aria-label="Ver la evidencia para graduados"
+            >
               <span class="network__node-symbol">01</span>
               <small>Graduados</small>
-            </span>
-            <span class="network__node network__node--companies">
+            </a>
+            <a
+              class="network__node network__node--companies"
+              href="#evidencia-empresas"
+              aria-label="Ver la evidencia para empresas"
+            >
               <span class="network__node-symbol">02</span>
               <small>Empresas</small>
-            </span>
-            <span class="network__node network__node--community">
+            </a>
+            <a
+              class="network__node network__node--community"
+              href="#evidencia-comunidad"
+              aria-label="Ver la evidencia de comunidad"
+            >
               <span class="network__node-symbol">03</span>
               <small>Comunidad</small>
-            </span>
-            <span class="network__node network__node--university">
+            </a>
+            <a
+              class="network__node network__node--university"
+              href="#evidencia-universidad"
+              aria-label="Ver la evidencia para la universidad"
+            >
               <span class="network__node-symbol">04</span>
               <small>Universidad</small>
-            </span>
+            </a>
           </div>
           <p class="network-stage__caption">Un ecosistema que se mantiene conectado</p>
         </div>
@@ -329,7 +351,7 @@
         </div>
 
         <div class="evidence__list">
-          <figure class="evidence-card reveal">
+          <figure class="evidence-card reveal" id="evidencia-graduados">
             <figcaption class="evidence-card__copy">
               <span class="evidence-card__index">01</span>
               <p class="evidence-card__category">Identidad profesional</p>
@@ -350,7 +372,7 @@
             <span class="evidence-card__hint">Desliza para explorar la captura</span>
           </figure>
 
-          <figure class="evidence-card evidence-card--reverse reveal">
+          <figure class="evidence-card evidence-card--reverse reveal" id="evidencia-empresas">
             <figcaption class="evidence-card__copy">
               <span class="evidence-card__index">02</span>
               <p class="evidence-card__category">Oportunidades</p>
@@ -371,7 +393,7 @@
             <span class="evidence-card__hint">Desliza para explorar la captura</span>
           </figure>
 
-          <figure class="evidence-card reveal">
+          <figure class="evidence-card reveal" id="evidencia-comunidad">
             <figcaption class="evidence-card__copy">
               <span class="evidence-card__index">03</span>
               <p class="evidence-card__category">Vínculo profesional</p>
@@ -413,7 +435,7 @@
             <span class="evidence-card__hint">Desliza para explorar la captura</span>
           </figure>
 
-          <figure class="evidence-card reveal">
+          <figure class="evidence-card reveal" id="evidencia-universidad">
             <figcaption class="evidence-card__copy">
               <span class="evidence-card__index">05</span>
               <p class="evidence-card__category">Información estratégica</p>
