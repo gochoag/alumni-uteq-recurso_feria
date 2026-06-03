@@ -6,7 +6,7 @@ services:
     build:
       context: .
     ports:
-      - "9126:443"
+      - "9080:443"
     volumes:
       - nginxfiles:/ssl/
     restart: always
