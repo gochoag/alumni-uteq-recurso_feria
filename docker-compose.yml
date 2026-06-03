@@ -1,12 +1,10 @@
-version: '3.8'
-
 services:
   alumni_uteq_web:
     container_name: alumni_uteq_web
     build:
       context: .
     ports:
-      - "9080:443"
+      - "9613:443"
     volumes:
       - nginxfiles:/ssl/
     restart: always
